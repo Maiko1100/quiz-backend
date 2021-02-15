@@ -1,0 +1,11 @@
+question {
+    set:0,
+    questionText:"Dit is een vraag?",
+    answerOptions:["yes","no"],
+    answer:0
+}
+savedQuestionnaire{
+    name:"tester",
+    questions:[{questionText:"Dit is een vraag?",answerOptions:["yes","no"],answer:0}],
+    correctAnswers:1
+}
