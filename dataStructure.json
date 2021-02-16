@@ -1,11 +1,13 @@
-question {
-    set:0,
-    questionText:"Dit is een vraag?",
-    answerOptions:["yes","no"],
-    answer:0
+questionnaire {
+    "id":88,
+    "questions":[{"questionText":"Dit is een vraag?",
+        "answerOptions":["yes","no"],"correctAnswer":0},{"questionText":"Dit is een vraag?",
+            "answerOptions":["yes","no"],"correctAnswer":0}]
+
+
 }
 savedQuestionnaire{
-    name:"tester",
-    questions:[{questionText:"Dit is een vraag?",answerOptions:["yes","no"],answer:0}],
-    correctAnswers:1
+    "name":"tester",
+    "questions":[{"questionText":"Dit is een vraag?","answerOptions":["yes","no"],"answer":0}],
+    "correctAnswers":1
 }
