@@ -3,6 +3,8 @@ import * as bodyParser from "body-parser";
 import initQuizController from "./controllers/QuizController";
 import mongoose from "mongoose";
 import cors from 'cors'
+import { getConnectionStringAndOption } from './utils/getDatabaseConnectionSettings';
+
 var corsOptions = {
   origin: "*"
 };
@@ -14,10 +16,9 @@ initQuizController(app);
 
 async function startServer() {
   try {
-    mongoose.connect("mongodb://localhost/quizDb", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const { connectionString, mongoOptions } = getConnectionStringAndOption();
+
+    mongoose.connect(connectionString, mongoOptions);
 
     const db = mongoose.connection;
     db.on("error", console.error.bind(console, "connection error:"));

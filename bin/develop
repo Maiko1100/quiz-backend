@@ -1,0 +1,13 @@
+#! /bin/sh
+
+export NODE_ENV="development"
+export NODE_PATH="./src" 
+export ENVIRONMENT="local"
+
+export DB_HOST="localhost"
+export DB_NAME="notifications"
+export DB_PORT="27017"
+
+
+export API_BASE_URL="http://localhost:1337/local/api/v1/"
+nodemon ./src/index.ts
