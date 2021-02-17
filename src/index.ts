@@ -5,15 +5,15 @@ import mongoose from "mongoose";
 import cors from "cors";
 import { getConnectionStringAndOption } from "./utils/getDatabaseConnectionSettings";
 
-var corsOptions = {
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders:['cross-origin']
-};
+// var corsOptions = {
+//   origin: "*",
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   allowedHeaders:['cross-origin','content-type']
+// };
 const app = express();
-
+app.use(cors());
 app.use(bodyParser.json({ limit: "5mb" }));
-app.use(cors(corsOptions));
+
 initQuizController(app);
 
 async function startServer() {
