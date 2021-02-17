@@ -4,7 +4,7 @@ import { QuizRepository } from "../repositories/QuizRepository";
 
 export default (app: Application): void => {
   app.get(
-    `/quiz/:quizId`,
+    `/quiz/:quizId/`,
     async (req: Request, res: Response, next: NextFunction) => {
       try {
         const quiz = await QuizRepository.getQuizById(req.params.quizId);
@@ -15,7 +15,7 @@ export default (app: Application): void => {
     }
   );
   app.post(
-    `/quiz/saveQuiz`,
+    `/quiz/saveQuiz/`,
     async (req: Request, res: Response, next: NextFunction) => {
       try {
         const { questions, name } = req.body;
