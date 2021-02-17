@@ -2,11 +2,13 @@ const express = require("express");
 import * as bodyParser from "body-parser";
 import initQuizController from "./controllers/QuizController";
 import mongoose from "mongoose";
-import cors from 'cors'
-import { getConnectionStringAndOption } from './utils/getDatabaseConnectionSettings';
+import cors from "cors";
+import { getConnectionStringAndOption } from "./utils/getDatabaseConnectionSettings";
 
 var corsOptions = {
-  origin: "*"
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders:['cross-origin']
 };
 const app = express();
 
