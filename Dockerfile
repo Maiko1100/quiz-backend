@@ -1,4 +1,4 @@
-FROM node:9.11.1-alpine
+FROM node:14.15.5-alpine
 
 RUN apk update --no-cache
 
