@@ -11,14 +11,26 @@ import { getConnectionStringAndOption } from "./utils/getDatabaseConnectionSetti
 //   allowedHeaders:['cross-origin','content-type']
 // };
 const app = express();
-app.use(cors({origin:true,credentials: true}));
+// app.use(cors({origin:true,credentials: true}));
 // app.use(cors());
-// app.use(function(req:any, res:any, next:any) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+app.use(function (req: any, res: any, next: any) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  return next();
+
+  next();
+});
 app.use(bodyParser.json({ limit: "5mb" }));
 
 initQuizController(app);
