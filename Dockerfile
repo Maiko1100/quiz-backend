@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 # COPY . .
 RUN npm install
-RUN npm webpack
+RUN npm run webpack
 
 USER node
 
