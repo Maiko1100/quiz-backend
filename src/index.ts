@@ -18,6 +18,7 @@ app.use(function (req: any, res: any, next: any) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+  res.header("Access-Control-Allow-Methods", "OPTIONS,GET,PUT,POST,DELETE");
   next();
 });
 app.use(bodyParser.json({ limit: "5mb" }));
