@@ -4,7 +4,10 @@ RUN apk update --no-cache
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY package*.json ./
+# COPY . .
+RUN npm install
+RUN npm webpack
 
 USER node
 
