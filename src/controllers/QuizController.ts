@@ -15,7 +15,7 @@ export default (app: Application): void => {
     }
   );
   app.post(
-    `/quiz/saveQuiz/`,
+    `/quiz/save-quiz/`,
     async (req: Request, res: Response, next: NextFunction) => {
       try {
         const { questions, name } = req.body;
@@ -27,7 +27,28 @@ export default (app: Application): void => {
           name,
           correctAnswers: correctAnswers.length,
         });
-        console.log(savedQuiz);
+
+        res.json(savedQuiz);
+      } catch (err) {
+        next(err);
+      }
+    }
+  );
+  app.get(`/saved-quiz/`, async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const savedQuizzes = await QuizRepository.getAllSavedQuizzes();
+      res.json(savedQuizzes);
+    } catch (err) {
+      next(err);
+    }
+  });
+  app.get(
+    `/saved-quiz/:id`,
+    async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const savedQuiz = await QuizRepository.getSavedQuiz(
+          req.params.quizId
+        );
         res.json(savedQuiz);
       } catch (err) {
         next(err);

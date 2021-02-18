@@ -8,6 +8,4 @@ export DB_HOST="localhost"
 export DB_NAME="quizDb"
 export DB_PORT="27017"
 
-
-export API_BASE_URL="http://localhost:1337/local/api/v1/"
 nodemon ./src/index.ts
